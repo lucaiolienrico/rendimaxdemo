@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://lucaiolienrico.github.io/rendimaxdemo/">
 <meta property="og:title" content="Rendimax — Calcola il rendimento del tuo immobile gratis">
 <meta property="og:description" content="Cash flow, rendimento netto e proiezione 10 anni in 2 minuti. Gratis, senza registrazione. Fiscalità italiana.">
-<meta property="og:image" content="https://www.rendimax.it/og-demo.png">
+
 <meta property="og:locale" content="it_IT">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rendimax — Calcola il rendimento del tuo immobile gratis">
@@ -238,17 +238,13 @@ footer a{color:var(--green);text-decoration:none}
 <!-- STICKY SHELL: header + tabs -->
 <div class="sticky-shell" id="sticky-shell">
   <header>
-    <a class="logo" href="https://www.rendimax.it/" aria-label="Rendimax home">
+    <a class="logo" href="#" aria-label="Rendimax demo">
       <div class="logo-mark" aria-hidden="true">
         <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 13L7 8l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       <span class="logo-name">Rendimax</span>
       <span class="logo-tag" aria-label="Demo gratuita">DEMO GRATUITA</span>
     </a>
-    <div class="header-right">
-      <button class="btn-ghost" onclick="goRegister()">Accedi</button>
-      <button class="btn-primary" onclick="goRegister()">Inizia gratis →</button>
-    </div>
   </header>
   <div class="tipo-wrap" role="tablist">
     <button class="tipo-tab active" onclick="setTipo('affitto',this)" role="tab" aria-selected="true">Affitto tradizionale</button>
@@ -460,13 +456,12 @@ footer a{color:var(--green);text-decoration:none}
       <h2>Salva l'analisi e genera<br>il <em>report PDF</em> con il tuo brand</h2>
       <p>Pro a €29,90/mese · 14 giorni gratis · Disdici quando vuoi</p>
       <div class="cta-btns">
-        <button class="btn-cta-main" onclick="goRegister()">Crea account gratuito →</button>
+        <button class="btn-cta-main" onclick="document.getElementById('input-panel').scrollIntoView({behavior:'smooth'})">Prova il calcolatore ↑</button>
         <button class="btn-cta-sec" id="btn-report" onclick="toggleReport()">Vedi report di esempio ↓</button>
       </div>
       <div class="report-preview" id="rp-wrap">
         <div class="rp-blur">
           <p>Report completo disponibile con Pro+</p>
-          <button onclick="goRegister()">Sblocca con Pro+ →</button>
         </div>
         <div class="rp-head">
           <div>
@@ -490,7 +485,7 @@ footer a{color:var(--green);text-decoration:none}
             <span style="font-size:.56rem;color:var(--ink4)">[ Grafico proiezione · 10 anni ]</span>
           </div>
           <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--bg3);display:flex;justify-content:space-between">
-            <span style="font-size:.52rem;color:var(--ink4)">Rendimax · rendimax.it</span>
+            <span style="font-size:.52rem;color:var(--ink4)">Rendimax</span>
             <span style="font-size:.52rem;color:var(--ink4)">Documento riservato</span>
           </div>
         </div>
@@ -507,11 +502,10 @@ footer a{color:var(--green);text-decoration:none}
 
 <footer>
   <div class="ft-logo">Rendimax</div>
-  <p>Analisi finanziaria immobiliare per il mercato italiano · <a href="https://www.rendimax.it">rendimax.it</a></p>
+  <p>Analisi finanziaria immobiliare per il mercato italiano</p>
 </footer>
 
 <script>
-const APP='https://www.rendimax.it/';
 let tipo='affitto', hasMutuo=true;
 
 // ── STICKY TOP DINAMICO ──
@@ -830,14 +824,6 @@ function toggleReport(){
   const open=w.style.display==='block';
   w.style.display=open?'none':'block';
   btn.textContent=open?'Vedi report di esempio ↓':'Nascondi report ↑';
-}
-
-// ── GO REGISTER ──
-function goRegister(){
-  const p={demo:1,prezzo:sv('prezzo'),canone:sv('canone'),spese:sv('spese'),
-    regime:sv('regime'),ltv:sv('ltv'),tasso:sv('tasso'),anni:sv('anni'),tipo};
-  const qs=Object.entries(p).map(([k,v])=>k+'='+encodeURIComponent(v)).join('&');
-  window.location.href=APP+'?'+qs;
 }
 
 // ── INIT ──
